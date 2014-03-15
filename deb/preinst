@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# stop Apache before install
+/etc/init.d/apache2 stop

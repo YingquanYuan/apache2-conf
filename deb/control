@@ -1,0 +1,8 @@
+Package: apache2-conf
+Version: 0.0.1
+Section: base
+Priority: optional
+Architecture: all
+Depends: apache2, libapache2-mod-wsgi
+Maintainer: Yingquan Yuan (yingq.yuan@gmail.com)
+Description: configuration package for Apache2 web server
