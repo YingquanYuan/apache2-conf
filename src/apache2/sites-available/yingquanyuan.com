@@ -51,6 +51,7 @@
     	# alias used to escape django url for serving static files
 	Alias /static /var/www/yingquanyuan.com/static/
     	<Directory /var/www/yingquanyuan.com/static>
+           Options -Indexes
        	   Order deny,allow
            Allow from all
     	</Directory>
@@ -190,57 +191,57 @@
 	# MSIE 7 and newer should be able to use keepalive
 	BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
 
-	
 </VirtualHost>
 </IfModule>
 
 <IfModule !mod_ssl.c>
 <VirtualHost *:80>
-        ServerAdmin yingq.yuan@yingquanyuan.com
-        ServerName www.yingquanyuan.com
+    ServerAdmin yingq.yuan@yingquanyuan.com
+    ServerName www.yingquanyuan.com
 
-        DocumentRoot /var/www/yingquanyuan.com
-        <Directory />
-                Options FollowSymLinks
-                AllowOverride None
-        </Directory>
-        <Directory /var/www/yingquanyuan.com/>
-                Options Indexes FollowSymLinks MultiViews
-                AllowOverride None
-                Order allow,deny
-                allow from all
-        </Directory>
+    DocumentRoot /var/www/yingquanyuan.com
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride None
+    </Directory>
+    <Directory /var/www/yingquanyuan.com/>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride None
+        Order allow,deny
+        allow from all
+    </Directory>
 
-        ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
-        <Directory "/usr/lib/cgi-bin">
-                AllowOverride None
-                Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
-                Order allow,deny
-                Allow from all
-        </Directory>
+    ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+    <Directory "/usr/lib/cgi-bin">
+        AllowOverride None
+        Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+        Order allow,deny
+        Allow from all
+    </Directory>
 
-        ErrorLog ${APACHE_LOG_DIR}/error.log
+    ErrorLog ${APACHE_LOG_DIR}/error.log
 
-        # Possible values include: debug, info, notice, warn, error, crit,
-        # alert, emerg.
-        LogLevel warn
+    # Possible values include: debug, info, notice, warn, error, crit,
+    # alert, emerg.
+    LogLevel warn
 
-        CustomLog ${APACHE_LOG_DIR}/access.log combined
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
 
-	Alias /doc/ "/usr/share/doc/"
-    	<Directory "/usr/share/doc/">
-        	Options Indexes MultiViews FollowSymLinks
-        	AllowOverride None
-        	Order deny,allow
-        	Deny from all
-        	Allow from 127.0.0.0/255.0.0.0 ::1/128
-    	</Directory>
-    
-    	# alias used to escape django url for serving static files
-    	Alias /static /var/www/yingquanyuan.com/static/
-    	<Directory /var/www/yingquanyuan.com/static>
-		Order deny,allow
-		Allow from all
-    	</Directory>
+    Alias /doc/ "/usr/share/doc/"
+    <Directory "/usr/share/doc/">
+        Options Indexes MultiViews FollowSymLinks
+        AllowOverride None
+        rder deny,allow
+        Deny from all
+        Allow from 127.0.0.0/255.0.0.0 ::1/128
+    </Directory>
+
+    # alias used to escape django url for serving static files
+    Alias /static /var/www/yingquanyuan.com/static/
+    <Directory /var/www/yingquanyuan.com/static>
+        Options -Indexes
+        Order deny,allow
+        Allow from all
+    </Directory>
 </Virtualhost>
 </IfModule>

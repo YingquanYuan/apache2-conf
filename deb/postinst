@@ -17,6 +17,7 @@ mods_enabled=(alias auth_basic authn_file authz_default \
               rewrite setenvif ssl status wsgi)
 for mod in ${mods_enabled[@]};
 do
+    a2dismod $mod
     a2enmod $mod
 done
 
@@ -25,8 +26,9 @@ done
 sites_enabled=(yingquanyuan.com)
 for site in ${sites_enabled[@]};
 do
+    a2dissite $site
     a2ensite $site
 done
 
 # all set, restart Apache
-/etc/init.d/apache2 start
+/etc/init.d/apache2 restart
