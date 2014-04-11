@@ -231,7 +231,7 @@
     <Directory "/usr/share/doc/">
         Options Indexes MultiViews FollowSymLinks
         AllowOverride None
-        rder deny,allow
+        Order deny,allow
         Deny from all
         Allow from 127.0.0.0/255.0.0.0 ::1/128
     </Directory>

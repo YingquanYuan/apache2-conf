@@ -15,9 +15,10 @@ package: clean $(TARGET_DIR)/apache2-conf.deb
 	mkdir -p $(TARGET_DIR)/`basename $(@:.deb=)`/DEBIAN
 	cp $(DEB_DIR)/* $(TARGET_DIR)/`basename $(@:.deb=)`/DEBIAN
 	-cp -r $(SRC_DIR)/* $(TARGET_DIR)/`basename $(@:.deb=)`$(INSTALL_DIR)
-	cd $(TARGET_DIR); sed -i.sedbak 's/Version: \([^-]*\).*/Version: 0-$(DATE)-$(COMMIT)/' `basename $(@:.deb=)`/DEBIAN/control; rm `basename $(@:.deb=)`/DEBIAN/*.sedbak
+	cd $(TARGET_DIR); sed -i.sedbak 's/Version: \([^-]*\).*/Version: 0-$(DATE)-$(COMMIT)/' \
+		`basename $(@:.deb=)`/DEBIAN/control; rm `basename $(@:.deb=)`/DEBIAN/*.sedbak
 	cd $(TARGET_DIR); dpkg-deb --build `basename $(@:.deb=)`
-	@# rm -r $(TARGET_DIR)/`basename $(@:.deb=)`
+	rm -r $(TARGET_DIR)/`basename $(@:.deb=)`
 
 .PHONY: clean
 clean:
