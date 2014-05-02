@@ -7,4 +7,5 @@ The src directory contains a standard configuration files bundle for setting up 
 
 The final deliverable through running **make** is a debian package, just run:
 * sudo dpkg -i apache2-conf.deb
+
 And all the customized configuration would get installed.
